@@ -43,19 +43,35 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  return false unless s.match?(/\A[a-zA-Z]/)
+  !s.match?(/\A[aeiou]/i)
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s.match?(/\A[01]+\z/)
+    return s.to_i(2) % 4 == 0
+  end
+  false 
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    # isbn is a string and price is a positive floating-point number
+    raise ArgumentError if isbn.empty? || price <= 0
+    @isbn = isbn
+    @price = price
+  end
+
+  def price_as_string
+    # returns the price of the book formatted with a leading dollar sign and two decimal places
+    format("$%.2f", @price)
+  end
 end
