@@ -73,5 +73,6 @@ class BookInStock
   def price_as_string
     # returns the price of the book formatted with a leading dollar sign and two decimal places
     format("$%.2f", @price)
+    #just adding a comment to test the github actions
   end
 end
